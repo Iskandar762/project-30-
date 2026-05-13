@@ -1,0 +1,56 @@
+/* Shared styles extracted from inline <style> blocks.
+   Note: not every page-specific style is covered yet; we'll iterate if needed. */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --navy:#0D2B4E;
+  --navy-light:#12375F;
+  --teal:#1A6B8A;
+  --bg:#FAFAF8;
+  --white:#FFFFFF;
+  --text:#1A1A1A;
+  --text-muted:#5C6B7A;
+  --border:#E2E6EA;
+  --success:#1D7A4A;
+  --warning:#F59E0B;
+  --radius:4px;
+}
+
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
+
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{background:var(--navy);padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-title{color:var(--white);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.15em;line-height:1.2}
+.nav-subtitle{color:rgba(255,255,255,0.45);font-size:9px;letter-spacing:0.12em;font-family:'Inter',sans-serif}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:13px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a.active{border-bottom:2px solid rgba(255,255,255,0.55);padding-bottom:2px}
+.nav-btn{background:var(--white);color:var(--navy);font-family:'Inter',sans-serif;font-size:12px;font-weight:500;padding:8px 20px;border-radius:var(--radius);letter-spacing:0.04em;cursor:pointer;border:none;transition:opacity 0.2s}
+.nav-btn:hover{opacity:0.85}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:1.5px;background:var(--white);display:block}
+.mobile-nav{display:none;background:var(--navy);padding:20px 60px;border-top:1px solid rgba(255,255,255,0.1)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;color:rgba(255,255,255,0.75);font-family:'Inter',sans-serif;font-size:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+
+/* Reveal animation (shared) */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Skip link */
+.skip-link{position:absolute;top:-40px;left:6px;background:var(--navy);color:var(--white);padding:8px;text-decoration:none;border-radius:var(--radius);z-index:1000;font-family:'Inter',sans-serif;font-size:14px}
+.skip-link:focus{top:6px}
+
+/* Responsive */
+@media(max-width:768px){
+  nav{padding:0 24px}
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .mobile-nav{padding:16px 24px}
+}
+

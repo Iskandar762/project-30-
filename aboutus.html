@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Mobile Apps Development</title>
+  <meta name="description" content="Meet the team behind the Mobile Apps Project 2026 — University of Technology." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animated"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="NEXUS Home">
+      <div class="logo-icon">NX</div>
+      <span class="logo-text">NEX<span>US</span></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="aboutus.html" class="active">About Us</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT HERO
+  ═══════════════════════════════════════ -->
+  <section class="about-hero" aria-label="About us hero" id="about">
+    <div class="about-hero-content">
+      <span class="about-eyebrow">NEXUS / MOBILE APPS</span>
+      <h1 class="about-title">
+        About <span class="highlight">Our Team</span>
+      </h1>
+      <p class="about-subtitle">
+        We are a group of passionate developers and designers building futuristic mobile experiences.
+        From concept to prototype, we blend creativity, engineering discipline, and user-focused innovation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TEAM SECTION
+  ═══════════════════════════════════════ -->
+  <section class="team-section" aria-label="Our team" id="team">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Built by Students</span>
+      <h2 class="section-title"><span>Meet</span> the Team</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="team-grid">
+      <article class="glass-card team-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="team-card-top">
+          <div class="team-avatar" aria-hidden="true">
+            <img class="team-avatar-img" src="is.jpeg" alt="Iskandar Zulkarnain profile picture" />
+            <span class="avatar-ring" aria-hidden="true"></span>
+          </div>
+          <h3 class="team-name">Iskandar Zulkarnain Bin Muhamad</h3>
+          <p class="team-role">Project Designer</p>
+          <p class="team-desc">Coordinates requirements, manages milestones, and ensures every module delivers measurable value.</p>
+          <div class="team-tags" aria-label="Skills">
+          <a href="iskandar/index.html" class="tag" aria-label="Open Iskandar jobsheet">Launch App</a>
+          </div>
+        </div>
+        <div class="team-card-bottom">
+          <div class="mini-label">Focus</div>
+          <div class="mini-skills">
+            <span class="mini-skill">System Design</span>
+            <span class="mini-skill">UI/UX</span>
+            <span class="mini-skill">Testing</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-card team-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-card-top">
+          <div class="team-avatar" aria-hidden="true">
+            <img class="team-avatar-img" src="najj.jpeg" alt="Najjwa Aqilla profile picture" />
+            <span class="avatar-ring" aria-hidden="true"></span>
+          </div>
+          <h3 class="team-name">Najjwa Aqilla Binti Mohd Khairi</h3>
+          <p class="team-role">Project Developer</p>
+          <p class="team-desc">Builds smooth user flows, implements responsive interfaces, and optimizes performance for mobile devices.</p>
+          <div class="team-tags" aria-label="Skills">
+            <span class="tag">Flutter</span>
+          </div>
+        </div>
+        <div class="team-card-bottom">
+          <div class="mini-label">Focus</div>
+          <div class="mini-skills">
+            <span class="mini-skill">State Management</span>
+            <span class="mini-skill">Animations</span>
+            <span class="mini-skill">Optimization</span>
+          </div>
+        </div>
+      </article>
+  </section>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+

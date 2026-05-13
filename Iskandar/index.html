@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BeachGuard — Maritime Safety Companion</title>
+
+<meta name="description" content="Your maritime safety companion with real-time conditions, safety alerts, and route planning for safer waters.">
+<meta name="keywords" content="maritime safety, boating safety, swimming safety, weather alerts, safety zones, emergency support">
+<meta name="author" content="BeachGuard">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D2B4E">
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset ──────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ── Design tokens ──────────────────────────────────── */
+:root{
+  --navy:#0D2B4E;
+  --navy-light:#12375F;
+  --teal:#1A6B8A;
+  --bg:#FAFAF8;
+  --white:#FFFFFF;
+  --text:#1A1A1A;
+  --text-muted:#5C6B7A;
+  --border:#E2E6EA;
+  --success:#1D7A4A;
+  --warning:#F59E0B;
+  --radius:4px;
+}
+
+/* ── Base ────────────────────────────────────────────── */
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+
+/* ── Skip link ───────────────────────────────────────── */
+.skip-link{position:absolute;top:-40px;left:6px;background:var(--navy);color:var(--white);padding:8px;text-decoration:none;border-radius:var(--radius);z-index:1000;font-family:'Inter',sans-serif;font-size:14px}
+.skip-link:focus{top:6px}
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav{background:var(--navy);padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-title{color:var(--white);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.15em;line-height:1.2}
+.nav-subtitle{color:rgba(255,255,255,0.45);font-size:9px;letter-spacing:0.12em;font-family:'Inter',sans-serif}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:13px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a.active{border-bottom:2px solid rgba(255,255,255,0.55);padding-bottom:2px}
+.nav-btn{background:var(--white);color:var(--navy);font-family:'Inter',sans-serif;font-size:12px;font-weight:500;padding:8px 20px;border-radius:var(--radius);letter-spacing:0.04em;cursor:pointer;border:none;transition:opacity 0.2s}
+.nav-btn:hover{opacity:0.85}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:1.5px;background:var(--white);display:block}
+.mobile-nav{display:none;background:var(--navy);padding:20px 60px;border-top:1px solid rgba(255,255,255,0.1)}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;color:rgba(255,255,255,0.75);font-family:'Inter',sans-serif;font-size:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+
+/* ── Reveal animation ────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero{
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 55%, var(--teal) 100%);
+  color:var(--white);
+  padding: 100px 60px 96px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+/* subtle wave texture overlay */
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 80px
+  );
+  pointer-events:none;
+}
+.hero-rule{
+  width:48px;
+  height:2px;
+  background:rgba(255,255,255,0.4);
+  margin:0 auto 36px;
+}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(2rem, 5vw, 3.6rem);
+  font-weight:500;
+  line-height:1.2;
+  max-width:740px;
+  margin:0 auto 24px;
+  letter-spacing:-0.01em;
+}
+.hero p{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.1rem;
+  color:rgba(255,255,255,0.75);
+  max-width:520px;
+  margin:0 auto 44px;
+  line-height:1.75;
+}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-outline{
+  background:transparent;
+  color:var(--white);
+  border:1px solid rgba(255,255,255,0.55);
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.06em;
+  padding:13px 32px;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:background 0.2s, border-color 0.2s;
+}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.8)}
+
+/* ── FEATURES ────────────────────────────────────────── */
+.features{
+  padding:96px 60px;
+  background:var(--white);
+  border-top:1px solid var(--border);
+}
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:48px;
+  max-width:1060px;
+  margin:0 auto;
+}
+.feature-item{padding:0 12px}
+.feature-icon{
+  width:44px;
+  height:44px;
+  color:var(--teal);
+  margin-bottom:24px;
+  display:block;
+}
+.feature-item h3{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.25rem;
+  font-weight:500;
+  color:var(--navy);
+  margin-bottom:14px;
+}
+.feature-item p{
+  font-size:0.95rem;
+  color:var(--text-muted);
+  line-height:1.75;
+}
+
+/* ── HOW IT WORKS ────────────────────────────────────── */
+.how{
+  padding:96px 60px;
+  background:var(--bg);
+  text-align:center;
+  border-top:1px solid var(--border);
+}
+.section-label{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:16px;
+}
+.section-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.6rem, 3vw, 2.4rem);
+  font-weight:500;
+  color:var(--navy);
+  margin-bottom:64px;
+  line-height:1.25;
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  max-width:860px;
+  margin:0 auto;
+}
+.step{text-align:center;padding:0 16px}
+.step-num{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1.5px solid var(--teal);
+  color:var(--teal);
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 24px;
+}
+.step h4{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.1rem;
+  font-weight:500;
+  color:var(--navy);
+  margin-bottom:12px;
+}
+.step p{
+  font-size:0.92rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+
+/* ── STATUS SECTION ──────────────────────────────────── */
+.status-section{
+  padding:96px 60px;
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+}
+.status-section .section-label{color:rgba(255,255,255,0.45)}
+.status-section .section-title{color:var(--white)}
+
+.status-inner{
+  max-width:620px;
+  margin:0 auto;
+}
+.status-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px;
+  overflow:hidden;
+  text-align:left;
+}
+.status-card-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 28px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  flex-wrap:wrap;
+  gap:12px;
+}
+.status-card-header span{
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  letter-spacing:0.14em;
+  color:rgba(255,255,255,0.4);
+  display:block;
+  margin-bottom:6px;
+}
+.status-loc{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.15rem;
+  color:var(--white);
+}
+.status-badge{
+  background:rgba(29,122,74,0.25);
+  border:1px solid rgba(29,122,74,0.5);
+  color:#4ade80;
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.12em;
+  padding:6px 14px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.status-body{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  padding:24px 28px;
+  gap:12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.stat-item{}
+.stat-item label{
+  display:block;
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  letter-spacing:0.12em;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.val{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.6rem;
+  color:var(--white);
+  line-height:1;
+}
+.unit{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin-left:4px;
+  font-style:normal;
+}
+.status-footer{
+  padding:14px 28px;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,0.35);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.dot-live{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#4ade80;
+  display:inline-block;
+  flex-shrink:0;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.4}
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer{
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:36px 60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.footer-copy{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  color:rgba(255,255,255,0.28);
+  letter-spacing:0.03em;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media(max-width:768px){
+  nav{padding:0 24px}
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .mobile-nav{padding:16px 24px}
+
+  .hero{padding:72px 24px 80px}
+  .features{padding:64px 24px}
+  .features-grid{grid-template-columns:1fr;gap:40px}
+  .feature-item{padding:0}
+
+  .how{padding:64px 24px}
+  .steps{grid-template-columns:1fr;gap:36px}
+
+  .status-section{padding:64px 24px}
+  .status-body{grid-template-columns:repeat(3,1fr)}
+  .status-card-header{flex-direction:column;align-items:flex-start}
+
+  footer{padding:28px 24px;justify-content:flex-start}
+}
+
+@media(max-width:480px){
+  .status-body{grid-template-columns:1fr;gap:20px}
+  .val{font-size:1.3rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Skip Link -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAVIGATION -->
+<nav role="navigation" aria-label="Main navigation">
+
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2"
+            stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="nav-title">BEACH GUARD</div>
+      <div class="nav-subtitle">MARITIME SAFETY COMPANION</div>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="safety-zones.html">Safety Zones</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+
+  <button class="nav-btn" onclick="location.href='sign-in.html'" aria-label="Sign in to your account">
+    Sign In
+  </button>
+
+  <div class="hamburger" onclick="toggleNav()" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </div>
+
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="features.html">Features</a>
+  <a href="safety-zones.html">Safety Zones</a>
+  <a href="about.html">About</a>
+  <a href="sign-in.html">Sign In</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <h1>Your Maritime Safety Companion</h1>
+    <p>
+      Real-time conditions, safety alerts, and route planning —
+      built for those who respect the sea.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn-outline" onclick="location.href='features.html'" aria-label="Learn more about our features">
+        Learn More
+      </button>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-grid reveal">
+
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <circle cx="22" cy="22" r="16"/>
+          <path d="M22 14v8l5 3" stroke-linecap="round"/>
+          <path d="M13 31c2.5-3 5.5-5 9-5s6.5 2 9 5" stroke-linecap="round"/>
+        </svg>
+        <h3>Real-Time Alerts</h3>
+        <p>Stay connected with instant weather and condition updates wherever you are on the water.</p>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M22 4C13 4 6 11 6 20c0 12 16 24 16 24s16-12 16-24c0-9-7-16-16-16z"/>
+          <circle cx="22" cy="20" r="5"/>
+        </svg>
+        <h3>Safety Zones</h3>
+        <p>Clearly marked safe swimming and navigation areas, updated in real time with tide and current data.</p>
+      </div>
+
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M22 8l14 7v10c0 8-6 14-14 17C14 39 8 33 8 25V15l14-7z"/>
+          <path d="M16 22l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Emergency Support</h3>
+        <p>Quick access to emergency contacts and automated distress signalling at your fingertips.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="section-label">Getting Started</div>
+    <h2 class="section-title">Three steps to safer waters</h2>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Download</h4>
+        <p>Get BeachGuard on iOS or Android — free to install, no subscription required.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Set Up</h4>
+        <p>Enter your vessel type, home port, and personal alert preferences.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Stay Safe</h4>
+        <p>Receive live conditions, zone alerts, and smart route guidance in real time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <section class="status-section">
+    <div class="section-label">Live Conditions</div>
+    <h2 class="section-title">What the app shows you</h2>
+
+    <div class="status-inner reveal">
+      <div class="status-card">
+
+        <div class="status-card-header">
+          <div>
+            <span>CURRENT LOCATION</span>
+            <div class="status-loc">Port Dickson, Selangor</div>
+          </div>
+          <div class="status-badge">SAFE FOR SWIMMING</div>
+        </div>
+
+        <div class="status-body">
+          <div class="stat-item">
+            <label>Wind</label>
+            <span class="val">12<span class="unit">kn NE</span></span>
+          </div>
+          <div class="stat-item">
+            <label>Tide</label>
+            <span class="val">+0.4<span class="unit">m rising</span></span>
+          </div>
+          <div class="stat-item">
+            <label>Visibility</label>
+            <span class="val">8<span class="unit">km</span></span>
+          </div>
+        </div>
+
+        <div class="status-footer">
+          <span class="dot-live"></span>
+          Last updated 2 minutes ago · Powered by BeachGuard real-time data
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:12px">
+    <svg width="20" height="20" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2"
+            stroke="rgba(255,255,255,0.28)" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="rgba(255,255,255,0.28)"/>
+    </svg>
+    <span class="footer-copy">© 2026 BeachGuard Maritime Safety. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  window.toggleNav = function toggleNav(){
+    const mobileNav = document.getElementById('mobileNav');
+    if(!mobileNav) return;
+    mobileNav.classList.toggle('open');
+    const hamburger = document.querySelector('.hamburger');
+    if(hamburger){
+      const isOpen = mobileNav.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    }
+  };
+
+  function setupAnchorSmoothScroll(){
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e){
+        const el = document.querySelector(this.getAttribute('href'));
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
+  }
+
+  function setupReveal(){
+    const els = document.querySelectorAll('.reveal');
+    if(!els.length) return;
+    if('IntersectionObserver' in window){
+      try{
+        const obs = new IntersectionObserver(entries=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+          });
+        },{threshold:0.12,rootMargin:'50px'});
+        els.forEach(el=>obs.observe(el));
+      }catch(err){
+        els.forEach(el=>el.classList.add('visible'));
+      }
+    } else {
+      els.forEach(el=>el.classList.add('visible'));
+    }
+  }
+
+  function setupMobileNavAccessibility(){
+    document.addEventListener('click', function(e){
+      const mobileNav = document.getElementById('mobileNav');
+      const hamburger = document.querySelector('.hamburger');
+      if(mobileNav && hamburger && !hamburger.contains(e.target) && !mobileNav.contains(e.target)){
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded','false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape'){
+        const mobileNav = document.getElementById('mobileNav');
+        const hamburger = document.querySelector('.hamburger');
+        if(mobileNav && mobileNav.classList.contains('open')){
+          mobileNav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded','false');
+          hamburger && hamburger.focus && hamburger.focus();
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setupAnchorSmoothScroll();
+    setupReveal();
+    setupMobileNavAccessibility();
+  });
+})();
+</script>
+
+</body>
+</html>

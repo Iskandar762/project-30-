@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Apps Development</title>
+  <meta name="description" content="Premium futuristic tech project — University of Technology." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animated"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="NEXUS Home">
+      <div class="logo-icon">NX</div>
+      <span class="logo-text">NEX<span>US</span></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-bg-ring"></div>
+    <div class="hero-bg-ring"></div>
+    <div class="hero-bg-ring"></div>
+    <div class="hero-bg-ring"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Mobile Apps Project 2026</p>
+
+      <h1 class="hero-title">
+        Building The Future
+        <span class="gradient-text">Mobile Apps Development</span>
+      </h1>
+
+      <div class="hero-typing-wrap" aria-live="polite">
+        <span class="typing-label">Pioneering &rarr;</span>
+        <span id="typing-text"></span>
+        <span class="cursor-blink" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

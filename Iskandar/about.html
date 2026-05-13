@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — BeachGuard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/about.css">
+<script src="js/about.js" defer></script>
+
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="nav-title">BEACH GUARD</div>
+      <div class="nav-subtitle">MARITIME SAFETY COMPANION</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="safety-zones.html">Safety Zones</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='sign-in.html'">Sign In</button>
+  <div class="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="features.html">Features</a>
+  <a href="safety-zones.html">Safety Zones</a>
+  <a href="about.html">About</a>
+  <a href="sign-in.html">Sign In</a>
+</div>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <h1>About BeachGuard</h1>
+  <p>Committed to maritime safety through innovative technology and community-driven solutions.</p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-content">
+  <h2>Our Mission</h2>
+  <p>BeachGuard was founded with a simple yet powerful mission: to make maritime activities safer for everyone. We believe that access to accurate, real-time information about water conditions should be available to all boaters, swimmers, and water enthusiasts.</p>
+  <div class="about-grid">
+    <div class="about-card">
+      <svg class="about-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M32 4C23 4 16 11 16 20c0 12 16 24 16 24s16-12 16-24c0-9-7-16-16-16z"/>
+        <circle cx="32" cy="20" r="5"/>
+      </svg>
+      <h3>Real-Time Data</h3>
+      <p>We provide accurate, up-to-the-minute information about tides, currents, weather conditions, and safety zones to help you make informed decisions on the water.</p>
+    </div>
+    <div class="about-card">
+      <svg class="about-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M32 8c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16s16-7.2 16-16V24c0-8.8-7.2-16-16-16z"/>
+        <path d="M24 32h16"/>
+      </svg>
+      <h3>Community Driven</h3>
+      <p>Our platform connects users to share real-time reports and observations, creating a collaborative network of maritime safety information.</p>
+    </div>
+    <div class="about-card">
+      <svg class="about-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M32 8l14 7v10c0 8-6 14-14 17C24 39 18 33 18 25V15l14-7z"/>
+        <path d="M26 22l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Innovation First</h3>
+      <p>We leverage cutting-edge technology including AI, AR, and IoT to deliver innovative safety solutions that adapt to your needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <h2>Our Team</h2>
+  <div class="team-grid">
+    <div class="about-card">
+      <img src="is.jpg" alt="Captain Iskandar" class="team-photo">
+      <h3>Captain Iskandar</h3>
+      <p>Founder & CEO<br>20+ years maritime experience</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Reports — BeachGuard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/community-report.css">
+
+<script src="js/app.js" defer></script>
+<script src="js/community-report.js" defer></script>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="nav-title">BEACH GUARD</div>
+      <div class="nav-subtitle">MARITIME SAFETY COMPANION</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="smart-fuel-range-estimator.html">Smart Fuel</a></li>
+    <li><a href="smartwatch-sync.html">Smart Watch</a></li>
+    <li><a href="notification.html">Notification</a></li>
+    <li><a href="community-report.html" class="active">Community Reports</a></li>
+    <li><a href="profile.html" >Profile</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='sign-in.html'">Sign Out</button>
+  <div class="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="dashboard.html">Dashboard</a>
+  <a href="smart-fuel-range-estimator.html">Smart Fuel</a>
+  <a href="smartwatch-sync.html">Sync</a>
+  <a href="notification.html">Notification</a>
+  <a href="community-report.html">Community Reports</a>
+  <a href="profile.html">Profile</a>
+  <a href="sign-in.html">Sign Out</a>
+</div>
+
+<!-- COMMUNITY SECTION -->
+<section class="community-section">
+  <h1 class="section-title">Community Reports</h1>
+
+  <form class="report-form" id="community-report-form" enctype="multipart/form-data" novalidate>
+
+    <div class="form-group">
+      <label class="form-label" for="report-type">Report Type</label>
+      <select id="report-type" class="form-select">
+        <option>Safety Concern</option>
+        <option>Water Condition</option>
+        <option>Marine Life</option>
+        <option>Navigation Hazard</option>
+        <option>Weather Observation</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="location">Location</label>
+      <input type="text" id="location" class="form-input" placeholder="Beach name or coordinates">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="description">Description</label>
+      <textarea id="description" class="form-textarea" placeholder="Describe what you observed..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="images-upload">Report Images</label>
+      <input id="images-upload" name="images" class="form-input" type="file" accept="image/*" multiple>
+      <div class="hint" style="color:var(--text-muted);font-size:12px;font-family:'Inter',sans-serif;">You can upload multiple images.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="videos-upload">Report Video</label>
+      <input id="videos-upload" name="videos" class="form-input" type="file" accept="video/*" multiple>
+      <div class="hint" style="color:var(--text-muted);font-size:12px;font-family:'Inter',sans-serif;">Video preview appears below after selecting files.</div>
+      <div class="preview" id="report-video-preview" aria-live="polite" style="margin-top:12px;display:flex;flex-wrap:wrap;gap:12px;"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Report Hyperlinks (up to 10)</label>
+      <div class="hint" style="color:var(--text-muted);font-size:12px;font-family:'Inter',sans-serif;margin-bottom:8px;">Enter multiple URLs. Each will appear under the report.</div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <input name="report-link-1" class="form-input report-link" type="url" placeholder="https://example1.com">
+        <input name="report-link-2" class="form-input report-link" type="url" placeholder="https://example2.com">
+        <input name="report-link-3" class="form-input report-link" type="url" placeholder="https://example3.com">
+        <input name="report-link-4" class="form-input report-link" type="url" placeholder="https://example4.com">
+        <input name="report-link-5" class="form-input report-link" type="url" placeholder="https://example5.com">
+        <input name="report-link-6" class="form-input report-link" type="url" placeholder="https://example6.com">
+        <input name="report-link-7" class="form-input report-link" type="url" placeholder="https://example7.com">
+        <input name="report-link-8" class="form-input report-link" type="url" placeholder="https://example8.com">
+        <input name="report-link-9" class="form-input report-link" type="url" placeholder="https://example9.com">
+        <input name="report-link-10" class="form-input report-link" type="url" placeholder="https://example10.com">
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn-submit">Submit Report</button>
+  </form>
+
+  <div class="reports-list" id="reportsList">
+    <!-- Reports will be loaded here -->
+  </div>
+</section>
+
+</body>
+</html>
+

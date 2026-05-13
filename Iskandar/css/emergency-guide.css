@@ -1,0 +1,27 @@
+/* Emergency Guide page styles extracted from inline <style> */
+
+/* EMERGENCY GUIDE */
+.guide-hero{background:var(--danger);padding:100px 60px;text-align:center;color:var(--red)}
+.guide-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:48px;font-weight:500;margin-bottom:16px}
+.guide-hero p{font-size:18px;max-width:600px;margin:0 auto;font-family:'Inter',sans-serif;opacity:0.9}
+.guide-content{background:var(--white);padding:80px 60px}
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+.guide-card{border:1px solid var(--border);border-radius:8px;padding:32px;text-align:center}
+.guide-icon{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
+.guide-card.emergency .guide-icon{background:var(--danger);color:var(--white)}
+.guide-card.preparation .guide-icon{background:var(--warning);color:var(--white)}
+.guide-card.safety .guide-icon{background:var(--success);color:var(--white)}
+.guide-card h3{font-family:'Playfair Display',Georgia,serif;font-size:24px;color:var(--navy);margin-bottom:16px}
+.guide-card p{font-size:15px;color:var(--text-muted);line-height:1.6;font-family:'Inter',sans-serif}
+.guide-card ul{text-align:left;margin-top:16px;padding-left:20px}
+.guide-card li{margin-bottom:8px;color:var(--text);font-size:14px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .guide-hero{padding:60px 24px}
+  .guide-hero h1{font-size:32px}
+  .guide-content{padding:40px 24px}
+  .guide-grid{grid-template-columns:1fr}
+  .resources-grid{grid-template-columns:1fr}
+}
+

@@ -1,0 +1,39 @@
+/* Community Reports */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0D2B4E;
+  --teal:#1A6B8A;
+  --bg:#FAFAF8;
+  --white:#FFFFFF;
+  --text:#1A1A1A;
+  --text-muted:#5C6B7A;
+  --border:#E2E6EA;
+  --radius:10px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+.section-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;color:var(--navy);text-align:center;margin-bottom:16px}
+.section-subtitle{color:var(--text-muted);font-size:16px;text-align:center;margin-bottom:40px}
+
+.community-section{padding:70px 60px;background:transparent}
+
+.report-form{max-width:980px;margin:0 auto 30px auto;}
+.form-group{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.form-label{font-family:'Inter',sans-serif;color:var(--navy);font-size:13px;font-weight:600}
+.form-select,.form-input{padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-family:'Inter',sans-serif}
+.form-textarea{padding:10px 12px;border-radius:8px;border:1px solid var(--border);font-family:'Inter',sans-serif;min-height:110px;resize:vertical}
+
+.btn-submit{background:var(--teal);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-family:'Inter',sans-serif;font-weight:700;cursor:pointer}
+.btn-submit:disabled{opacity:.7;cursor:not-allowed}
+
+.reports-list{max-width:980px;margin:0 auto}
+.report-item{border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px;background:#fff}
+.report-header{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}
+.report-type{font-weight:700;color:var(--navy)}
+.report-time{color:var(--text-muted);font-size:12px}
+.report-location{font-weight:700;color:var(--navy);margin-bottom:6px}
+.report-description{color:var(--text-muted);white-space:pre-wrap}
+
+@media(max-width:768px){
+  .community-section{padding:40px 20px}
+}
+

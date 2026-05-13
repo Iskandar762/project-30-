@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — BeachGuard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/profile.css">
+
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="nav-title">BEACH GUARD</div>
+      <div class="nav-subtitle">MARITIME SAFETY COMPANION</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="smart-fuel-range-estimator.html">Smart Fuel</a></li>
+    <li><a href="smartwatch-sync.html">Smart Watch</a></li>
+    <li><a href="notification.html">Notification</a></li>
+    <li><a href="community-report.html">Community Reports</a></li>
+    <li><a href="profile.html" class="active" >Profile</a></li> 
+
+  </ul>
+  <button class="nav-btn" onclick="location.href='sign-in.html'">Sign Out</button>
+  <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="dashboard.html">Dashboard</a>
+  <a href="smart-fuel-range-estimator.html">Smart Fuel</a>
+  <a href="smartwatch-sync.html">Sync</a>
+  <a href="notification.html">Notification</a>
+  <a href="community-report.html">Community Reports</a>
+  <a href="profile.html">Profile</a>
+  <a href="sign-in.html">Sign Out</a>
+</div>
+
+<!-- PROFILE SECTION -->
+<section class="profile-section">
+  <div class="profile-header">
+    <div class="profile-avatar">JD</div>
+    <h1 class="profile-name">John Doe</h1>
+    <p class="profile-email">john.doe@example.com</p>
+  </div>
+<form class="profile-form" id="profile-form">
+
+    <div class="form-group">
+      <label class="form-label" for="name">Full Name</label>
+      <input type="text" id="name" class="form-input" value="John Doe">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="email">Email Address</label>
+      <input type="email" id="email" class="form-input" value="john.doe@example.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="phone">Phone Number</label>
+      <input type="tel" id="phone" class="form-input" placeholder="+60 123-456-7890">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="vessel">Vessel Type</label>
+      <select id="vessel" class="form-select">
+        <option>Boat</option>
+        <option>Jet Ski</option>
+        <option>Kayak</option>
+        <option>Surfboard</option>
+        <option>Swimmer</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="home-port">Home Port</label>
+      <select id="home-port" class="form-select">
+        <option value="Johor">Johor</option>
+        <option value="Kedah">Kedah</option>
+        <option value="Kelantan">Kelantan</option>
+        <option value="Melaka">Melaka</option>
+        <option value="Negeri Sembilan">Negeri Sembilan</option>
+        <option value="Pahang">Pahang</option>
+        <option value="Penang">Penang</option>
+        <option value="Perak">Perak</option>
+        <option value="Perlis">Perlis</option>
+        <option value="Sabah">Sabah</option>
+        <option value="Sarawak">Sarawak</option>
+        <option value="Selangor">Selangor</option>
+        <option value="Terengganu">Terengganu</option>
+        <option value="Kuala Lumpur">Kuala Lumpur</option>
+        <option value="Labuan">Labuan</option>
+        <option value="Putrajaya">Putrajaya</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="experience">Experience Level</label>
+      <select id="experience" class="form-select">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+        <option>Expert</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-save" id="saveButton">Save Changes</button>
+    <button type="button" class="btn-danger" id="deleteAccountBtn">Delete Account</button>
+
+  </form>
+</section>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

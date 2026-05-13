@@ -1,0 +1,17 @@
+/* Smartwatch Sync page styles extracted from inline <style> */
+
+/* SYNC PAGE */
+.sync-section{background:var(--white);min-height:calc(100vh - 68px);padding:80px 60px;text-align:center}
+.sync-title{font-family:'Playfair Display',Georgia,serif;font-size:32px;color:var(--navy);margin-bottom:16px}
+.sync-subtitle{color:var(--text-muted);font-size:16px;margin-bottom:40px;font-family:'Inter',sans-serif;max-width:600px;margin-left:auto;margin-right:auto}
+.sync-card{max-width:500px;margin:0 auto;border:1px solid var(--border);border-radius:8px;padding:40px}
+.sync-icon{width:64px;height:64px;margin:0 auto 24px;color:var(--teal)}
+.btn-sync{background:var(--teal);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;font-weight:500;padding:14px 32px;border-radius:var(--radius);border:none;cursor:pointer}
+.btn-sync:hover{opacity:0.9}
+.sync-status{margin-top:24px;font-size:14px;color:var(--text-muted);font-family:'Inter',sans-serif}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sync-section{padding:40px 24px}
+}
+

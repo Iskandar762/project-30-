@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Guide — BeachGuard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/emergency-guide.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="nav-title">BEACH GUARD</div>
+      <div class="nav-subtitle">MARITIME SAFETY COMPANION</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="emergency-guide.html" class="active">Emergency Guide</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='sign-in.html'">Sign In</button>
+  <div class="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- EMERGENCY GUIDE HERO -->
+<section class="guide-hero">
+  <h1>Emergency Guide</h1>
+  <p>Essential safety procedures and emergency response protocols for maritime situations.</p>
+</section>
+
+<!-- EMERGENCY GUIDE CONTENT -->
+<section class="guide-content">
+  <div class="guide-grid">
+    <div class="guide-card emergency">
+      <div class="guide-icon">🚨</div>
+      <h3>Emergency Response</h3>
+      <p>Immediate actions to take in life-threatening maritime emergencies.</p>
+      <ul>
+        <li>Stay calm and assess the situation</li>
+        <li>Activate emergency beacon or radio</li>
+        <li>Contact nearest coast guard immediately</li>
+        <li>Follow "Mayday" distress call protocol</li>
+        <li>Prepare life jackets and safety equipment</li>
+      </ul>
+    </div>
+
+    <div class="guide-card preparation">
+      <div class="guide-icon">⚠️</div>
+      <h3>Weather Emergencies</h3>
+      <p>Handling sudden weather changes and storm conditions.</p>
+      <ul>
+        <li>Monitor weather forecasts regularly</li>
+        <li>Prepare for sudden squalls and storms</li>
+        <li>Secure all loose equipment on deck</li>
+        <li>Reduce speed and head for sheltered waters</li>
+        <li>Keep emergency supplies readily accessible</li>
+      </ul>
+    </div>
+
+    <div class="guide-card safety">
+      <div class="guide-icon">🏊</div>
+      <h3>Swimming Safety</h3>
+      <p>Essential guidelines for safe swimming and water activities.</p>
+      <ul>
+        <li>Never swim alone - use buddy system</li>
+        <li>Check water conditions before entering</li>
+        <li>Be aware of rip currents and undertows</li>
+        <li>Wear appropriate safety gear</li>
+        <li>Know your swimming limits and abilities</li>
+      </ul>
+    </div>
+
+    <div class="guide-card emergency">
+      <div class="guide-icon">🏥</div>
+      <h3>Medical Emergencies</h3>
+      <p>Basic first aid and medical response procedures.</p>
+      <ul>
+        <li>Carry comprehensive first aid kit</li>
+        <li>Know basic CPR and rescue techniques</li>
+        <li>Treat injuries immediately and properly</li>
+        <li>Seek professional medical help when needed</li>
+        <li>Document all medical incidents</li>
+      </ul>
+    </div>
+
+    <div class="guide-card preparation">
+      <div class="guide-icon">📡</div>
+      <h3>Communication</h3>
+      <p>Maintaining contact and signaling for help.</p>
+      <ul>
+        <li>Keep communication devices charged</li>
+        <li>Learn international distress signals</li>
+        <li>Register trip plans with authorities</li>
+        <li>Use proper radio communication protocols</li>
+        <li>Have backup communication methods</li>
+      </ul>
+    </div>
+
+    <div class="guide-card safety">
+      <div class="guide-icon">🛟</div>
+      <h3>Equipment Safety</h3>
+      <p>Proper use and maintenance of safety equipment.</p>
+      <ul>
+        <li>Regularly inspect all safety gear</li>
+        <li>Know how to use life-saving equipment</li>
+        <li>Keep emergency supplies well-stocked</li>
+        <li>Test equipment functionality regularly</li>
+        <li>Replace expired or damaged equipment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY RESOURCES -->
+<section class="guide-content" style="padding-top:0">
+  <h2 style="text-align:center;font-family:'Playfair Display',Georgia,serif;font-size:28px;color:var(--navy);margin-bottom:32px">Safety Resources</h2>
+  <div style="max-width:800px;margin:0 auto">
+    <p style="text-align:center;color:var(--text-muted);margin-bottom:40px;font-family:'Inter',sans-serif">Comprehensive beach and water safety guides from trusted organizations worldwide.</p>
+    <div class="resources-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Healthline Beach Safety Guide</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Comprehensive health-focused beach safety tips and precautions.</p>
+        <a href="https://www.healthline.com/health/beach-safety?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">NEPA Beach Safety Tips</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Official beach safety notices and lifeguard guidelines.</p>
+        <a href="https://www.nepa.gov.jm/notices/lifeguard/beach-safety?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Travel Guard Beach Safety Tips</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Travel safety focused beach and water activity precautions.</p>
+        <a href="https://www.travelguard.com/travel-resources/travel-safety/student-travel-safety/beach-safety-tips?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Met Office Beach Safety Advice</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Weather service beach safety tips for UK coastal areas.</p>
+        <a href="https://weather.metoffice.gov.uk/warnings-and-advice/seasonal-advice/travel/out-and-about/10-beach-safety-tips?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Neptune Beach Ocean Rescue Safety</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Local beach safety tips from ocean rescue services.</p>
+        <a href="https://www.nbfl.gov/ocean-rescue-division/pages/beach-water-safety-tips?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">American Red Cross Water Safety</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Emergency preparedness and water safety guidelines.</p>
+        <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/water-safety.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">National Weather Service Rip Current Safety</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Specific guidance on rip current dangers and safety.</p>
+        <a href="https://www.weather.gov/safety/ripcurrent?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">NOAA Beach Hazards Guide</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Ocean service guide to common beach and water hazards.</p>
+        <a href="https://oceanservice.noaa.gov/facts/beach-hazards.html?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Royal Life Saving Beach Safety</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Australian life saving society's beach safety resources.</p>
+        <a href="https://www.royallifesaving.com.au/stay-safe-active/locations/beach-safety?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+      <div class="resource-card" style="border:1px solid var(--border);border-radius:8px;padding:20px;background:var(--white)">
+        <h4 style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:12px">Surf Life Saving Australia Beachsafe</h4>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px">Comprehensive beach safety information and resources.</p>
+        <a href="https://beachsafe.org.au?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;font-weight:500">Read Guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:12px">
+    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+      <path d="M14 6v16M9 10h10M8 20c1.5-1.5 3.5-2 6-2s4.5.5 6 2" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="14" cy="7" r="1.5" fill="rgba(255,255,255,0.28)"/>
+    </svg>
+</footer>
+
+<script src="js/emergency-guide.js"></script>
+</body>
+</html>

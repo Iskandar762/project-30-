@@ -1,0 +1,28 @@
+/* About page styles extracted from inline <style> in about.html */
+
+.about-hero{background:var(--navy);padding:100px 60px;text-align:center}
+.about-hero h1{font-family:'Playfair Display',Georgia,serif;font-size:48px;font-weight:500;color:var(--white);margin-bottom:16px}
+.about-hero p{color:rgba(255,255,255,0.6);font-size:18px;max-width:600px;margin:0 auto;font-family:'Inter',sans-serif}
+.about-content{background:var(--white);padding:80px 60px}
+.about-content h2{font-family:'Playfair Display',Georgia,serif;font-size:36px;color:var(--navy);text-align:center;margin-bottom:20px}
+.about-content p{font-size:16px;color:var(--text-muted);text-align:center;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif}
+.team-photo{display:block;width:160px;height:160px;object-fit:cover;border-radius:50%;margin:0 auto 24px;border:4px solid rgba(26,107,138,0.18);box-shadow:0 12px 28px rgba(13,43,78,0.1)}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;max-width:1200px;margin:0 auto}
+.about-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:32px;text-align:center}
+.about-icon{width:64px;height:64px;margin:0 auto 20px;color:var(--teal)}
+.about-card h3{font-family:'Inter',sans-serif;font-size:20px;color:var(--navy);margin-bottom:12px}
+.about-card p{font-size:14px;color:var(--text-muted);line-height:1.6;font-family:'Inter',sans-serif}
+.team-section{background:var(--bg);padding:80px 60px;text-align:center}
+.team-section h2{font-family:'Playfair Display',Georgia,serif;font-size:36px;color:var(--navy);margin-bottom:40px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;max-width:1000px;margin:0 auto}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .about-hero{padding:60px 24px}
+  .about-hero h1{font-size:32px}
+  .about-content{padding:40px 24px}
+  .about-grid{grid-template-columns:1fr}
+  .team-section{padding:40px 24px}
+  .team-grid{grid-template-columns:1fr}
+}
+
